@@ -13,7 +13,8 @@ sdatos segment
                     "GABRIEL ORLANDO AJSIVINAC XICAY",13,10,
                     "CARNET: 201213010",13,10,
                     "--------------------------------------------","$"
-    
+    ejemplomsj db "ingrese numero ejemplo: 50,1000,100","$"
+
     entrada db 50 dup ("$")  ;variable para capturar lo que se ingresa
     extra db 80 dup ("$")
     long dw 0
@@ -193,7 +194,13 @@ scodigo segment 'CODE'
         mov ah, 9
         int 21h  
     CALL PRINTLN
+	
+	mov dx, offset ejemplomsj
+        mov ah, 9
+        int 21h
+	CALL PRINTLN	
 	    ini:
+			CALL PRINTLN
 	        MOV LONG,0
 	        mov dx, offset menu_p
 		    mov ah, 09
